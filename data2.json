@@ -1,0 +1,21 @@
+{
+    "country": "England",
+    "users": [
+        {
+            "name": "bochola",
+            "age": 33
+        },
+        {
+            "name": "magnagila",
+            "age": 36
+        },
+        {
+            "name": "bancala",
+            "age": 44
+        },
+        {
+            "name": "natalia",
+            "age": 14
+        }
+    ]
+}

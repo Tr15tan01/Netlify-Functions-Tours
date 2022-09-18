@@ -1,0 +1,35 @@
+{
+    "country": "England",
+    "users": [
+        {
+            "name": "bochola",
+            "age": 33
+        },
+        {
+            "name": "magnagila",
+            "age": 36
+        },
+        {
+            "name": "bancala",
+            "age": 44
+        },
+        {
+            "name": "natalia",
+            "age": 14
+        }
+    ],
+    "marketing": [
+        {
+            "heading": "Airport Transfer",
+            "content": "This is Just a dummy content to test Netlify and React.js together"
+        },
+        {
+            "heading": "Hotel Reservation",
+            "content": "Hotel ReservationHotel ReservationHotel Reservation test Netlify and React.js together"
+        },
+        {
+            "heading": "Transport Accent",
+            "content": "This is Just a dummy content to test Netlify and React.js together"
+        }
+    ]
+}

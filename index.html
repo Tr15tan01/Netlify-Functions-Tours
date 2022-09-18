@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netlify Testing App</title>
+</head>
+
+<body>
+    <h1>Test one</h1>
+    <form id="myForm" data-netlify="true">
+        <input type=" text" name="name">
+        <input type="submit">
+    </form>
+    <script>
+        // const url = "http://localhost:8888/.netlify/functions/app"
+        const url = "/.netlify/functions/function1"
+        // const url = "https://jsonplaceholder.typicode.com/todos/1"
+        const headers = {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        }
+        console.log('testing...')
+        // fetch(url, {
+        //     method: "GET",
+        //     mode: 'cors',
+        //     headers: headers
+        // }).then(res => console.log(res)).catch(err => console.error(err))
+        fetch(url)
+            .then(response => response.json())
+            .then(json => console.log(json))
+
+        // console.log('another fetch')
+
+
+        // fetch(url1)
+        //     .then(response => response.json())
+        //     .then(json => console.log(json))
+
+
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            let myForm = document.getElementById("myForm");
+            let formData = new FormData(myForm);
+            fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString(),
+            })
+                .then(() => console.log("Form successfully submitted"))
+                .catch((error) => alert(error));
+        };
+
+        document
+            .querySelector("form")
+            .addEventListener("submit", handleSubmit);
+
+    </script>
+</body>
+
+</html>
