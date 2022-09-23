@@ -1,14 +1,1 @@
-[
-    {
-        "heading": "Airport Transfer",
-        "content": "This is Just a dummy content to test Netlify and React.js together"
-    },
-    {
-        "heading": "Hotel Reservation",
-        "content": "Hotel ReservationHotel ReservationHotel Reservation test Netlify and React.js together"
-    },
-    {
-        "heading": "Transport Accent",
-        "content": "This is Just a dummy content to test Netlify and React.js together"
-    }
-]
+[{"heading":"Airport Transfer","content":"This is Just a dummy content to test Netlify and React.js together"},{"heading":"Hotel Reservation and other","content":"Hotel ReservationHotel ReservationHotel Reservation test Netlify and React.js together"},{"heading":"Transport Accent","content":"This is Just a dummy content to test Netlify and React.js together"}]

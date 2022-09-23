@@ -1,36 +1,42 @@
 const querystring = require('node:querystring')
 const fs = require('fs')
 
-var data = fs.readFileSync('./data3.json');
-var myObject = JSON.parse(data);
-myObject.users.push({ name: "bokolia", age: 99 })
-console.log(myObject.users)
-const newData = JSON.stringify(myObject)
+// var data = fs.readFileSync('./data.json');
+// var myObject = JSON.parse(data);
 
+// const newData = JSON.stringify(myObject)
 
-// fs.writeFile("./data.json", newData, (err) => {
-//     // Error checking
-//     if (err) throw err;
-//     console.log("New data added");
-// });
+//TODO 💪 does not work, must overwrite this object
 
 exports.handler = async (event, context) => {
-    const res = myObject;
+    // const res = myObject;
     const body = querystring.parse(event.body)
     console.log('Input body', body)
 
-    let dataToInsert = []
-    for (let i = 0; i < body.heading.length; i++) {
-        dataToInsert.push({ heading: body.heading[i], content: body.content[i] })
+
+    // for (let i = 0; i < body.length; i++) {
+    //      body.push({ heading: body.heading[i], content: body.content[i] })
+    //     console.log('inserting?')
+    // }
+    let newBody = []
+
+    //TODO 👆 3 is hardcoded here, took me mych time to find out that body has no length... 🤔
+
+    for (let i = 0; i < 3; i++) {
+        newBody.push({ heading: body.heading[i], content: body.content[i] })
+        console.log('inserting?', i)
     }
-    const dataReady = JSON.stringify(dataToInsert)
-    console.log('datatoinsert', dataToInsert)
-    console.log('event is - ', event.multiValueHeaders.referer)
+
+    console.log('data to insert is - ', newBody)
+
+    const dataReady = JSON.stringify(newBody)
+    // console.log('datatoinsert', dataReady)
+    // console.log('event is - ', event.multiValueHeaders.referer)
 
     fs.writeFile("./data.json", dataReady, (err) => {
         // Error checking
         if (err) throw err;
-        console.log("New data added");
+        console.log("New data added", dataReady);
     });
 
     return {
@@ -40,6 +46,6 @@ exports.handler = async (event, context) => {
             "Access-Control-Allow-Headers": "Content-Type",
             "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
         },
-        body: newData
+        body: dataReady
     }
 }
